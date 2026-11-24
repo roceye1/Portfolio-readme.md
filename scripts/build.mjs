@@ -1,0 +1,1 @@
+import {mkdir,copyFile,cp,readdir,rm} from 'node:fs/promises'; await rm('dist',{recursive:true,force:true}); await mkdir('dist',{recursive:true});for(const f of await readdir('.'))if(/\.(html|css|js)$/.test(f))await copyFile(f,'dist/'+f);await cp('assets','dist/assets',{recursive:true});console.log('Static portfolio built in dist/');
